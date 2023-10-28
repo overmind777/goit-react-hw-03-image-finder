@@ -80,7 +80,7 @@ class App extends Component {
   };
 
   render() {
-    const { images, isLoading, error, showModal, selectedImage, isLastPage } =
+    const { images, isLoading, error, showModal, selectedImage, totalHits } =
       this.state;
 
     return (
@@ -94,7 +94,7 @@ class App extends Component {
 
         {isLoading && <Loader />}
 
-        {!isLoading && images.length > 0 && !isLastPage && (
+        {!isLoading && images.length > 0 && images.length < totalHits && (
           <Button onClick={this.handleButtonMore} />
         )}
 
